@@ -1,17 +1,15 @@
 import React from "react";
 
-const MenuItem = ({menuItem}) => {
-  const { name, image, price, recipe } = menuItem;
+const MenuItem = ({item}) => {
+  const { name, image, price, recipe } = item;
   return (
-    <div className="flex items-center justify-center gap-3">
-      <div className="w-[100px] h-[100px] flex flex-col items-center justify-center">
+    <div className="flex items-center gap-3">
         <img
           style={{ borderRadius: "0 200px 200px 200px" }}
-          className="w-[80px] h-[82px]"
+          className="w-[80px] h-[80px]"
           src={image}
           alt="populer-img"
         />
-      </div>
       <div>
         <div className="flex justify-between items-center">
           <h4 className="uppercase">{name}</h4>
