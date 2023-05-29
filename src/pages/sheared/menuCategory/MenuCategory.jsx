@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ButtonCmn from "../../../component/buttonC/ButtonCmn";
 import Cover from "../cover/Cover";
 import MenuItem from "../menuItem/MenuItem";
@@ -12,7 +13,9 @@ const MenuCategory = ({ items, img, title, subTitle }) => {
           <MenuItem key={item._id} item={item}></MenuItem>
         ))}
       </div>
-      <ButtonCmn text="ORDER YOUR FAVOURITE FOOD"></ButtonCmn>
+      <Link to={`/order/${title}`}>
+        <ButtonCmn text="ORDER YOUR FAVOURITE FOOD"></ButtonCmn>
+      </Link>
     </div>
   );
 };
