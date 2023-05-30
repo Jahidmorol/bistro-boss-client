@@ -51,6 +51,7 @@ const SignIn = () => {
 
   const handleCapcha = e => {
    const user_capcha = e.target.value;
+   console.log(user_capcha)
     if(validateCaptcha(user_capcha)){
         setDisabled(false)
     }
@@ -111,8 +112,7 @@ const SignIn = () => {
                     <LoadCanvasTemplate />
                 </label>
                 <input
-                  onBlur={handleCapcha}
-                  {...register("capcha", { required: true })}
+                  onBlur={(e)=>handleCapcha(e)}
                   type="text"
                   placeholder="type the captcha above"
                   className="input input-bordered"
