@@ -1,7 +1,25 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logout Successfull",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => console.error(error));
+  };
+
   const navOptions = (
     <>
       <li>
@@ -13,6 +31,20 @@ const Header = () => {
       <li>
         <Link to="/order/salad">Our Shop</Link>
       </li>
+      <li>
+        {user ? (
+          <>
+            <button onClick={handleLogout} className="btn btn-ghost">
+              LogOut
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/signin">Login</Link>
+          </>
+        )}
+      </li>
+
       {/* <li>
         <Link to="/menu">Contact Us</Link>
       </li> */}
@@ -41,18 +73,22 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-900 rounded-box w-52"
           >
             {navOptions}
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-2xl font-bold">Bistro Boss</Link>
+        <Link to="/" className="btn btn-ghost normal-case text-2xl font-bold">
+          Bistro Boss
+        </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navOptions}</ul>
+      <div className=" navbar-center hidden lg:flex">
+        <ul className=" menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        {user && (
+          <img className="h-12 w-12 rounded-full" src={user.photoURL} alt="" />
+        )}
       </div>
     </div>
   );

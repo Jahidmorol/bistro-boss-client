@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 
 import { Navigation } from "swiper";
 import Rating from "react-rating";
-import { FaLongArrowAltRight, FaQuoteLeft, FaRegStar, FaStar } from "react-icons/fa";
+import { FaQuoteLeft, FaRegStar, FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);

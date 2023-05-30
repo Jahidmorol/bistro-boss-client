@@ -1,14 +1,16 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../pages/sheared/footer/Footer';
 import Header from '../pages/sheared/header/Header';
 
 const Main = () => {
+    const location = useLocation()
+    const noHeaderFooter = location.pathname.includes('signin') || location.pathname.includes('signup')
     return (
         <div>
-            <Header></Header>
+            {noHeaderFooter || <Header></Header>}
             <Outlet></Outlet>
-            <Footer></Footer>
+            {noHeaderFooter || <Footer></Footer>}
         </div>
     );
 };
