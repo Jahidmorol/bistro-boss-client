@@ -3,9 +3,13 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../hooks/useCart";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  const [cart] = useCart();
 
   const handleLogout = () => {
     logOut()
@@ -32,16 +36,20 @@ const Header = () => {
         <Link to="/order/salad">Our Shop</Link>
       </li>
       <li>
+        <Link to="/dashboard">
+          <button className="flex gap-2 pt-1">
+            <FaShoppingCart></FaShoppingCart>
+            <div className="badge badge-secondary">+{cart.length || 0}</div>
+          </button>
+        </Link>
+      </li>
+      <li>
         {user ? (
-          <>
-            <button onClick={handleLogout} className="btn btn-ghost">
-              LogOut
-            </button>
-          </>
+          <button onClick={handleLogout} className="">
+            LogOut
+          </button>
         ) : (
-          <>
-            <Link to="/signin">Login</Link>
-          </>
+          <Link to="/signin">Login</Link>
         )}
       </li>
 

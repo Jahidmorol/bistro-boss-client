@@ -5,7 +5,7 @@ import MenuItem from "../../sheared/menuItem/MenuItem";
 const PopulerMenu = () => {
   const [menu] = useMenu();
     const popularItems = menu.filter((item) => item.category === "popular");
-  console.log(menu);
+  // console.log(menu);
   return (
     <div className="my-20">
       <SectionTitle
