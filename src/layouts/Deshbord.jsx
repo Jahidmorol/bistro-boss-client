@@ -41,13 +41,13 @@ const Deshbord = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/reservations">
+                <NavLink to="/dashboard/additem">
                   {" "}
                   <FaUtensils></FaUtensils> Add Items
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/history">
+                <NavLink to="/dashboard/manageitems">
                   <FaWallet></FaWallet> Manage Items
                 </NavLink>
               </li>

@@ -2,13 +2,16 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Deshbord from "../layouts/Deshbord";
 import Main from "../layouts/Main";
+import AddItem from "../pages/deshboard/AddItem/AddItem";
 import Alluser from "../pages/deshboard/Allusers/Alluser";
+import ManageItems from "../pages/deshboard/ManageItems/ManageItems";
 import MyCart from "../pages/deshboard/MyCart/MyCart";
 import Home from "../pages/home/home/Home";
 import SignIn from "../pages/login/SignIn/SignIn";
 import SignUp from "../pages/login/SignUp/SignUp";
 import Menu from "../pages/menu/Menu/Menu";
 import Order from "../pages/order/Order/Order";
+import AdminRout from "./AdminRout";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -53,6 +56,14 @@ export const router = createBrowserRouter([
       {
         path: "allusers",
         element: <Alluser></Alluser>,
+      },
+      {
+        path: "additem",
+        element: <AdminRout><AddItem></AddItem></AdminRout>,
+      },
+      {
+        path: "manageitems",
+        element: <AdminRout><ManageItems></ManageItems></AdminRout>,
       },
     ],
   },
