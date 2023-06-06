@@ -6,6 +6,7 @@ import AddItem from "../pages/deshboard/AddItem/AddItem";
 import Alluser from "../pages/deshboard/Allusers/Alluser";
 import ManageItems from "../pages/deshboard/ManageItems/ManageItems";
 import MyCart from "../pages/deshboard/MyCart/MyCart";
+import Payment from "../pages/deshboard/Payment/Payment";
 import Home from "../pages/home/home/Home";
 import SignIn from "../pages/login/SignIn/SignIn";
 import SignUp from "../pages/login/SignUp/SignUp";
@@ -54,8 +55,12 @@ export const router = createBrowserRouter([
         element: <MyCart></MyCart>,
       },
       {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
+      {
         path: "allusers",
-        element: <Alluser></Alluser>,
+        element: <AdminRout><Alluser></Alluser></AdminRout>,
       },
       {
         path: "additem",
